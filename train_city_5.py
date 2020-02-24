@@ -19,6 +19,7 @@ C.size_train = (640,1280)
 C.init_lr = 2e-4
 C.num_epochs = 3
 C.offset = True
+C.iter_per_epoch=40
 
 num_gpu = len(C.gpu_ids.split(','))
 batchsize = C.onegpu * num_gpu
