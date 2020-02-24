@@ -3,7 +3,7 @@ import random
 import sys, os
 import time
 import numpy as np
-import cPickle
+import pickle as cPickle
 from keras.utils import generic_utils
 from keras.optimizers import Adam
 from keras.layers import Input
@@ -30,7 +30,7 @@ with open(cache_path, 'rb') as fid:
     train_data = cPickle.load(fid)
 num_imgs_train = len(train_data)
 random.shuffle(train_data)
-print 'num of training samples: {}'.format(num_imgs_train)
+print("num of training samples: {}".format(num_imgs_train))
 data_gen_train = data_generators.get_data(train_data, C, batchsize=batchsize)
 
 # define the base network (resnet here, can be MobileNet, etc)
@@ -53,7 +53,7 @@ model_tea = Model(img_input, preds_tea)
 
 model.load_weights(weight_path, by_name=True)
 model_tea.load_weights(weight_path, by_name=True)
-print 'load weights from {}'.format(weight_path)
+print('load weights from {}'.format(weight_path))
 
 if C.offset:
     out_path = 'output/valmodels/city/%s/off' % (C.scale)

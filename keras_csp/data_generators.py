@@ -141,6 +141,7 @@ def get_data(ped_data, C, batchsize = 8):
 		if current_ped>len(ped_data)-batchsize:
 			random.shuffle(ped_data)
 			current_ped = 0
+		print(current_ped)
 		for img_data in ped_data[current_ped:current_ped + batchsize]:
 			try:
 				img_data, x_img = data_augment.augment(img_data, C)
