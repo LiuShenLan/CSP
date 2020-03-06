@@ -1,7 +1,7 @@
 from __future__ import division
 import os
 import time
-import cPickle
+import pickle as cPickle
 from keras.layers import Input
 from keras.models import Model
 from keras_csp import config, bbox_process
@@ -10,7 +10,7 @@ from keras_csp.utilsfunc import *
 os.environ["CUDA_VISIBLE_DEVICES"] = '1'
 C = config.Config()
 C.offset = True
-cache_path = 'data/cache/cityperson/val_500'
+cache_path = 'data/cache/cityperson/val_2'
 with open(cache_path, 'rb') as fid:
 	val_data = cPickle.load(fid)
 num_imgs = len(val_data)
