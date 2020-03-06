@@ -14,11 +14,12 @@ from keras_csp import losses as losses
 # get the config parameters
 C = config.Config()
 C.gpu_ids = '0'
-C.onegpu = 2
+C.onegpu = 1
 C.size_train = (640,1280)
 C.init_lr = 2e-4
-C.num_epochs = 150
+C.num_epochs = 3
 C.offset = True
+C.iter_per_epoch=40
 
 num_gpu = len(C.gpu_ids.split(','))
 batchsize = C.onegpu * num_gpu
